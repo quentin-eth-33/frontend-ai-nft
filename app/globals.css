@@ -48,3 +48,22 @@
 .head_text {
   @apply mt-5 text-5xl font-extrabold leading-[1.15] text-black sm:text-6xl;
 }
+
+.nav__connect {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #38b2ac, #60a5c9);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.nav__connect:hover {
+  background: linear-gradient(135deg, #60a5c9, #38b2ac);
+}
+
+.nav__connect:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(56, 178, 172, 0.5);
+}
