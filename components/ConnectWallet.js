@@ -2,6 +2,7 @@
 
 import { ethers } from "ethers"
 import { useState, useEffect } from "react"
+import { contractAddresses, abi } from "../constants"
 
 const ConnectWallet = () => {
   const [account, setAccount] = useState(null)
@@ -16,11 +17,6 @@ const ConnectWallet = () => {
   }
   useEffect(() => {
     const checkSelectedAddress = async () => {
-      const provider = new ethers.providers.Web3Provider(window.ethereum)
-      const network = await provider.getNetwork()
-      console.log("provider: ", provider)
-      console.log("network: ", network)
-
       if (window.ethereum && window.ethereum.selectedAddress) {
         const address = ethers.utils.getAddress(window.ethereum.selectedAddress)
         setAccount(address)
@@ -30,6 +26,19 @@ const ConnectWallet = () => {
     checkSelectedAddress()
   }, [])
 
+  const totalSupply = async () => {
+    const provider = new ethers.providers.Web3Provider(window.ethereum)
+    const network = await provider.getNetwork()
+    console.log("provider: ", provider)
+    console.log("network: ", network)
+    console.log("address", contractAddresses.sepolia[0])
+    const nft = new ethers.Contract(contractAddresses.sepolia[0], abi, provider)
+    console.log("contract nft" + nft)
+    const signer = await provider.getSigner()
+    console.log("signer" + signer)
+    const transaction = await nft.connect(signer).totalSupply()
+    console.log("total supply: " + transaction)
+  }
   return (
     <nav>
       {account ? (
@@ -41,6 +50,9 @@ const ConnectWallet = () => {
           Connect
         </button>
       )}
+      <button type="button" className="nav__connect" onClick={totalSupply}>
+        Total Supply
+      </button>
     </nav>
   )
 }
