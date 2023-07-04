@@ -17,11 +17,7 @@
   z-index: 3;
   width: 100%;
   max-width: 640px;
-  background-image: radial-gradient(
-      at 27% 37%,
-      hsla(215, 98%, 61%, 1) 0px,
-      transparent 0%
-    ),
+  background-image: radial-gradient(at 27% 37%, hsla(215, 98%, 61%, 1) 0px, transparent 0%),
     radial-gradient(at 97% 21%, hsla(125, 98%, 72%, 1) 0px, transparent 50%),
     radial-gradient(at 52% 99%, hsla(354, 98%, 61%, 1) 0px, transparent 50%),
     radial-gradient(at 10% 29%, hsla(256, 96%, 67%, 1) 0px, transparent 50%),
@@ -66,4 +62,74 @@
 .nav__connect:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(56, 178, 172, 0.5);
+}
+
+/* Style the form */
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 600px;
+  margin: 20px;
+}
+
+form input[type="text"] {
+  width: 250px;
+  height: 50px;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid var(--clr-blue);
+  border-radius: 4px;
+  font-size: 1.1em;
+}
+
+form input[type="submit"] {
+  background-color: var(--clr-blue);
+  color: var(--clr-white);
+  width: 250px;
+  height: 50px;
+  margin: 10px 0;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  font-family: "Play";
+  font-size: 1.1em;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 250ms ease;
+}
+
+form input[type="submit"]:hover {
+  background-color: var(--clr-blue-2);
+}
+
+/* Style the image */
+.image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 90%;
+  width: 512px;
+  height: 512px;
+  margin: 20px;
+  border: 3px solid var(--clr-blue);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.image img {
+  width: 512px;
+  height: 512px;
+  border-radius: 6px;
+}
+
+.image__placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image__placeholder p {
+  margin: 0 10px;
 }
