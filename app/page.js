@@ -1,4 +1,5 @@
 import ConnectWallet from "../components/ConnectWallet"
+import FormCallApi from "../components/FormCallApi"
 export default function Home() {
   return (
     <section className="w-full flex-center flex-col">
@@ -7,6 +8,9 @@ export default function Home() {
       </h1>
       <div className="absolute top-0 right-0 mt-8 mr-0">
         <ConnectWallet />
+      </div>
+      <div>
+        <FormCallApi />
       </div>
     </section>
   )
